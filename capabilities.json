@@ -1,0 +1,249 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Values - X",
+            "name": "category",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Values - Y Left",
+            "name": "measureYLeft",
+            "kind": "Measure"
+        },   
+        {
+            "displayName": "Values - Y Right",
+            "name": "measureYRight",
+            "kind": "Measure"
+        },                 
+        {
+            "displayName": "Line by",
+            "name": "lineBy",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Visual Grouping by",
+            "name": "visualGroupBy",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Trellis by",
+            "name": "trellisBy",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Tooltip",
+            "name": "tooltipData",
+            "kind": "GroupingOrMeasure"
+        }
+    ],
+    "objects": {
+        "internalState": {
+            "displayName": "Internal State",
+            "properties": {
+                "graphConfig": {
+                    "displayName": "Graph Configuration",
+                    "type": {
+                        "text": true
+                    }
+                }
+            }
+        },
+        "general": {
+            "displayName": "General",
+            "displayNameKey": "formattingGeneral",
+            "properties": {
+                "filter": {
+                    "type": {
+                        "filter": true
+                    }
+                },
+                "selfFilter": {
+                    "type": {
+                       "filter": {
+                          "selfFilter": true
+                       }
+                    }
+                 }
+            }
+        },
+        "graphSettings": {
+            "displayName": "Graph Settings",
+            "properties": {
+                "trellisColumns": {
+                    "displayName": "Trellis Columns",
+                    "description": "Number of columns for trellised charts.",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "chartConfig": {
+                    "displayName": "Chart Configuration",
+                    "description": "",
+                    "type": {
+                        "text": false
+                    }
+                },                
+                "dateContinuous": {
+                    "displayName": "Date Continuous Format",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "enableMultipleYAxes": {
+                    "displayName": "Enable Multiple Y-Axes",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "showSliders": {
+                    "displayName": "Show Axis Sliders",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "colourByMeasure": {
+                    "displayName": "Colour by Measure",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "trellisByMeasure": {
+                    "displayName": "Trellis by Measure",
+                    "type": {
+                        "bool": true
+                    }
+                },                
+                "enableTooltips": {
+                    "displayName": "Enable Graph Tooltips",
+                    "type": {
+                        "bool": true
+                    }
+                },  
+
+                "xScaleByTrellis": {
+                    "displayName": "X-Axis Scale by Trellis",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "yScaleByTrellis": {
+                    "displayName": "Y-Axis Scale by Trellis",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "enableCrossVizFilters": {
+                    "displayName": "Enable Cross-Visualization Filters",
+                    "type": {
+                        "bool": true
+                    }
+                },
+
+                "legendByTrellis": {
+                    "displayName": "Legend by Trellis",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "showTrellisTitle": {
+                    "displayName": "Show Trellis title",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "showLineLabels": {
+                    "displayName": "Show line labels",
+                    "type": {
+                        "bool": true
+                    }
+                },   
+                "trellisAutoLayout": {
+                    "displayName": "Trellis Auto Layout",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "verticalLegend": {
+                    "displayName": "Vertical Legend",
+                    "type": {
+                        "bool": true
+                    }
+                }                                     
+            }
+            
+        }
+        
+    },
+    "dataViewMappings": [
+        {
+            "conditions": [
+                {
+                    "category": {"max": 1},
+                    "lineBy": {"max": 1},
+                    "visualGroupBy": {"max": 1},
+                    "trellisBy": {"max": 1}
+                }
+            ],
+            "categorical": {
+                "categories": {
+                    "select": [
+                        {
+                          "for": {
+                            "in": "category"
+                          }
+                        },
+                        {
+                          "for": {
+                            "in": "lineBy"
+                          }
+                        },
+                        {
+                          "for": {
+                            "in": "visualGroupBy"
+                          }
+                        },
+                        {
+                            "for": {
+                              "in": "trellisBy"
+                            }
+                          }
+                      ],
+                    "dataReductionAlgorithm": {
+                        "top": {
+                            "count": 30000
+                        }
+                    }
+                },
+                "values": {
+                    "select": [
+                        {
+                            "bind": {
+                                "to": "measureYLeft"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "measureYRight"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "tooltipData"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "sorting": {
+        "implicit": {
+            "clauses": [
+                {
+                    "role": "category",
+                    "direction": 1
+                }
+            ]
+        }
+    }
+}

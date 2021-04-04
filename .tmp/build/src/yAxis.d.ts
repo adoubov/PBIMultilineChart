@@ -1,0 +1,38 @@
+import "core-js/stable";
+import "./../style/visual.less";
+import * as d3 from 'd3';
+import { Graph } from "./graph";
+export declare class YAxis {
+    parentGraph: Graph;
+    private yAxisIndex;
+    private renderAllMeasures;
+    yScale: d3.ScaleLinear<number, number>;
+    private yAxis;
+    private lineGroupings;
+    sliderContainer: d3.Selection<SVGGElement, any, HTMLDivElement, any>;
+    private rangeSlider;
+    private lineClass;
+    yAxisXPosition: number;
+    private yAxisAlignment;
+    parentSVG: d3.Selection<SVGGElement, any, HTMLDivElement, any>;
+    yAxisDesc: string;
+    private colourScale;
+    private lineStyleScale;
+    private measures;
+    private measuresDictionary;
+    private visualGroupByDictionary;
+    private graphSettings;
+    private lineLabels;
+    private powerBIFormat;
+    private ticksCount;
+    constructor(parentGraph: Graph, yAxisIndex: number, renderAllMeasures: boolean, axisAlignment: string);
+    private initYAxis;
+    UpdateAxisDomain(newDomain: [number, number]): void;
+    private OnLineMouseOver;
+    private OnLineMouseOut;
+    private DrawLines;
+    UpdateLines(): void;
+    private GetTickFormatString;
+    private ShowSliders;
+    private HideSliders;
+}

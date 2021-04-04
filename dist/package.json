@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "author": {"name":"Artem Doubov","email":"artemdoubov@hotmail.com"},
+    "resources": [
+        {
+            "resourceId": "rId0",
+            "sourceType": 5,
+            "file": "resources/pocMultilineChartE1FCCAEA8C414E89A5387A2B74B2AED6.pbiviz.json"
+        }
+    ],
+    "visual": {"name":"pocMultilineChart","displayName":"Data Civ MultiAxis Trellis Chart","guid":"pocMultilineChartE1FCCAEA8C414E89A5387A2B74B2AED6","visualClassName":"Visual","version":"1.0.0","description":"Multi-axis line chart with trellis support","supportUrl":"tbd","gitHubUrl":""},
+    "metadata": {
+        "pbivizjson": {
+            "resourceId": "rId0"
+        }
+    }  
+}
